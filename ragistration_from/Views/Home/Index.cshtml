@@ -1,0 +1,33 @@
+﻿@model List<ragistration_from.Models.Stdmodel>
+
+<h2>*********TABLE DATA********</h2>
+@Html.ActionLink("NewCreate","Create","home")
+
+<table class=" table table-bordered table-hover table-responsive">
+    <tr>
+        <th>Id</th>
+        <th>Fname</th>
+        <th>Lname</th>
+        <th>Qalification</th>
+        <th>Gender</th>
+        <th>Edit</th>
+        <th>Details</th>
+        <th>Delete</th>
+
+    </tr>
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>@item.Id</td>
+    <td>@item.Fname</td>
+    <td>@item.Lname</td>
+    <td>@item.Qalification</td>
+    <td>@item.Gender</td>
+    <td><a class="btn btn-success" href="@Url.Action("Edit", "home", new {id=item.Id})">EDIT</a></td>
+    <td><a class="btn btn-warning" href="@Url.Action("Details", "home", new {id=item.Id})">DETAILS</a></td>
+    <td><a class="btn btn-danger" href="@Url.Action("Delete", "home", new {id=item.Id})">DELETE</a></td>
+
+
+</tr>
+    }
+</table>
